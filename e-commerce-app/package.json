@@ -1,0 +1,40 @@
+{
+	"name": "e-commerce-app",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview",
+		"prepare": "svelte-kit sync",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check --plugin-search-dir=. .",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"directories": "mkdir ./src/assets ./src/components ./src/layouts ./src/models ./src/server ./src/store && mkdir -p ./src/assets/{css,images}",
+		"create-files": "touch ./src/assets/css/tailwind.css ./src/assets/images/README.md ./src/components/README.md ./src/layouts/README.md ./src/models/README.md ./src/server/index.ts ./src/store/README.md",
+		"packages": "yarn add apollo-server graphql && yarn add -D less tailwindcss postcss autoprefixer svelte-preprocess && npx tailwindcss init tailwind.config.cjs -p && mv postcss.config.js postcss.config.cjs",
+		"boilerplate": "yarn packages && yarn directories && yarn create-files"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.4.7",
+		"less": "^4.1.2",
+		"postcss": "^8.4.14",
+		"prettier": "^2.5.1",
+		"prettier-plugin-svelte": "^2.5.0",
+		"svelte": "^3.44.0",
+		"svelte-check": "^2.2.6",
+		"svelte-preprocess": "^4.10.6",
+		"tailwindcss": "^3.0.24",
+		"ts-node": "^10.8.0",
+		"tslib": "^2.3.1",
+		"typescript": "~4.6.2"
+	},
+	"type": "module",
+	"dependencies": {
+		"apollo-server": "^3.8.1",
+		"graphql": "^16.5.0"
+	}
+}
