@@ -8,7 +8,7 @@ const products = [
     quantity: 20,
     price: 619.99,
     image: `img-1`,
-    onSale: false
+    onSale: true
   },
   {
     id: `c2af9adc-d0b8-4d44-871f-cef66f86f7f6`,
