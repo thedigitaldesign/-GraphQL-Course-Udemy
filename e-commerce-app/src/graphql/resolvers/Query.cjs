@@ -1,11 +1,11 @@
-const { products, categories, reviews } = require('../db.cjs')
+// const { products, categories, reviews } = require('../db.cjs')
 
 exports.Query = {
   product: (parent, { id }, { products }) => {
     const product = products.find((product) => product.id === id)
     return product
   },
-  products: (parent, { filter }, context) => {
+  products: (parent, { filter }, { products, reviews }) => {
     let filtered = products
 
     if (filter) {
@@ -27,8 +27,6 @@ exports.Query = {
           })
 
           let rating = sum / numReviews
-
-          console.log('Sum: ', sum, 'numReviews: ', numReviews, 'Rating: ', rating, 'rating >= avgRating: ', rating >= avgRating)
 
           return rating >= avgRating
         })

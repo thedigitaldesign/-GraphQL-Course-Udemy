@@ -12,9 +12,9 @@
 		"lint": "prettier --check --plugin-search-dir=. .",
 		"format": "prettier --write --plugin-search-dir=. .",
 		"graphql:run": "clear && nodemon ./src/graphql/index.cjs",
-		"graphql:packages": "yarn add apollo-server graphql && yarn add -D nodemon ts-node",
+		"graphql:packages": "yarn add apollo-server graphql uuid && yarn add -D nodemon ts-node",
 		"directories": "mkdir ./src/assets ./src/components ./src/graphql ./src/graphql/resolvers ./src/layouts ./src/models ./src/store && mkdir -p ./src/assets/{css,images}",
-		"create-files": "touch ./src/assets/css/tailwind.css ./src/assets/images/README.md ./src/components/README.md ./src/graphql/{index.cjs,schema.cjs} ./src/graphql/resolvers/Query.cjs ./src/layouts/README.md ./src/models/README.md ./src/store/README.md",
+		"create-files": "touch ./src/assets/css/tailwind.css ./src/assets/images/README.md ./src/components/README.md ./src/graphql/{index.cjs,schema.cjs,resolvers.cjs,context.cjs} ./src/graphql/resolvers/{Query.cjs,Mutation.cjs} ./src/layouts/README.md ./src/models/README.md ./src/store/README.md",
 		"packages": "yarn add -D less tailwindcss postcss autoprefixer svelte-preprocess && npx tailwindcss init tailwind.config.cjs -p && mv postcss.config.js postcss.config.cjs",
 		"boilerplate": "yarn graphql:packages && yarn packages && yarn directories && yarn create-files"
 	},
@@ -38,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"apollo-server": "^3.8.1",
-		"graphql": "^16.5.0"
+		"graphql": "^16.5.0",
+		"uuid": "^8.3.2"
 	}
 }
