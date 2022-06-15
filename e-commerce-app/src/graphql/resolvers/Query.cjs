@@ -1,5 +1,3 @@
-// const { products, categories, reviews } = require('../db.cjs')
-
 exports.Query = {
   product: (parent, { id }, { products }) => {
     const product = products.find((product) => product.id === id)
@@ -38,5 +36,5 @@ exports.Query = {
     const category = categories.find((category) => category.id === id)
     return category
   },
-  categories: () => categories
+  categories: (parent, args, { categories }) => categories
 }

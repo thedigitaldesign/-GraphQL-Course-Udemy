@@ -46,5 +46,22 @@ exports.Mutation = {
     reviews.push(newReview)
 
     return newReview
+  },
+  removeCategory: (parent, { id }, { categories, products }) => {
+    categories = categories.filter((category) => category.id !== id)
+    products = products.map((product) => {
+      if (product.fk_category_id === id) {
+        return { ...product, fk_category_id: null }
+      }
+      return product
+    })
+
+    return true
+  },
+  removeProduct: (parent, { id }, { products, reviews }) => {
+    products = products.filter(product => product.id !== id)
+    reviews = reviews.filter(review => review.fk_product_id !== id)
+
+    return true
   }
 }
