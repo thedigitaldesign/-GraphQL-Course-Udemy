@@ -59,9 +59,20 @@ exports.Mutation = {
     return true
   },
   removeProduct: (parent, { id }, { products, reviews }) => {
-    products = products.filter(product => product.id !== id)
-    reviews = reviews.filter(review => review.fk_product_id !== id)
+    products = products.filter((product) => product.id !== id)
+    reviews = reviews.filter((review) => review.fk_product_id !== id)
 
     return true
+  },
+  updateCategory: (parent, { id, input }, { categories }) => {
+    const index = categories.findIndex(category => category.id === id)
+    console.log(`Index of update category: `, index)
+
+    categories[index] = {
+      ...categories[index],
+      ...input
+    }
+
+    return categories[index]
   }
 }
