@@ -15,6 +15,7 @@
 		"graphql:packages": "yarn add apollo-server graphql uuid && yarn add -D nodemon ts-node",
 		"graphql:directories": "mkdir ./src/graphql && mkdir -p ./src/graphql/{resolvers,mutations} ./src/graphql/mutations/{create,delete,disable,hide,update}",
 		"graphql:create-files": "touch ./src/graphql/{index.ts,schema.ts,resolvers.ts,context.ts} ./src/graphql/mutations/Mutation.ts ./src/graphql/mutations/create/README.md ./src/graphql/mutations/delete/README.md ./src/graphql/mutations/disable/README.md ./src/graphql/mutations/hide/README.md ./src/graphql/mutations/update/README.md ./src/graphql/resolvers/Query.ts",
+		"graphql:boilerplate": "yarn graphql:packages graphql:directories graphql:create-files",
 		"directories": "mkdir ./src/assets ./src/components ./src/layouts ./src/models ./src/store && mkdir -p ./src/assets/{css,images}",
 		"create-files": "touch ./src/assets/css/tailwind.css ./src/assets/images/README.md ./src/components/README.md ./src/layouts/README.md ./src/models/README.md ./src/store/README.md",
 		"packages": "yarn add -D less tailwindcss postcss autoprefixer svelte-preprocess && npx tailwindcss init tailwind.config.cjs -p && mv postcss.config.js postcss.config.cjs",
