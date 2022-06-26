@@ -5,16 +5,19 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 import { buildSchema } from 'graphql'
 import { typeDef as Car } from './schemas/Car'
 import { typeDef as Group } from './schemas/Group'
-
+import { typeDef as Feature } from './schemas/Feature'
+import { typeDef as Image } from './schemas/Image'
 
 const Query = `
   type Query {
     hello: String
+    cars: [Car!]!
+    
   }
 `
 
 exports.typeDefs = makeExecutableSchema({
-  typeDefs: [Query, Car, Group]
+  typeDefs: [Query, Car, Group, Feature, Image]
 })
 
 // const schema = `
