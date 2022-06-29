@@ -10,23 +10,43 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"format": "prettier --write --plugin-search-dir=. .",
+		"gql:run": "clear && npx nodemon ./src/graphql/index.ts",
+		"gql:packages": "yarn add apollo-server graphql uuid && yarn add -D nodemon ts-node",
+		"gql:directories": "mkdir ./src/graphql && mkdir -p ./src/graphql/{resolvers,mutations} ./src/graphql/mutations/{create,delete,disable,hide,update}",
+		"gql:create-files": "touch ./src/graphql/{index.ts,schema.ts,resolvers.ts,context.ts} ./src/graphql/mutations/Mutation.ts ./src/graphql/mutations/create/README.md ./src/graphql/mutations/delete/README.md ./src/graphql/mutations/disable/README.md ./src/graphql/mutations/hide/README.md ./src/graphql/mutations/update/README.md ./src/graphql/resolvers/Query.ts",
+		"gql:boilerplate": "yarn gql:packages gql:directories gql:create-files",
+		"directories": "mkdir ./src/assets ./src/components ./src/layouts ./src/models ./src/store && mkdir -p ./src/assets/{css,images}",
+		"create-files": "touch ./src/assets/css/tailwind.css ./src/assets/images/README.md ./src/components/README.md ./src/layouts/README.md ./src/models/README.md ./src/store/README.md",
+		"packages": "yarn add -D less tailwindcss postcss autoprefixer svelte-preprocess && npx tailwindcss init tailwind.config.cjs -p && mv postcss.config.js postcss.config.cjs",
+		"boilerplate": "yarn packages && yarn directories && yarn create-files && yarn gql:boilerplate"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
+		"autoprefixer": "^10.4.7",
 		"eslint": "^8.16.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"less": "^4.1.3",
+		"nodemon": "^2.0.18",
+		"postcss": "^8.4.14",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
-		"svelte-preprocess": "^4.10.6",
+		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.1.4",
+		"ts-node": "^10.8.1",
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"apollo-server": "^3.9.0",
+		"graphql": "^16.5.0",
+		"uuid": "^8.3.2"
+	}
 }
