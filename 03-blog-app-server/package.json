@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"start": "clear && nodemon ./src/index.ts",
-		"packages": "yarn add apollo-server graphql uuid @graphql-tools/schema && yarn add -D nodemon ts-node-dev typescript tslib && npx tsc --init",
+		"packages": "yarn add faunadb apollo-server graphql uuid @graphql-tools/schema && yarn add -D nodemon ts-node-dev typescript tslib && npx tsc --init",
 		"directories": "mkdir ./src && mkdir -p ./src/{resolvers,mutations} ./src/mutations/{create,delete,disable,hide,update}",
 		"create-files": "touch ./src/{index.ts,schema.ts,resolvers.ts,context.ts} ./src/mutations/Mutation.ts ./src/mutations/create/README.md ./src/mutations/delete/README.md ./src/mutations/disable/README.md ./src/mutations/hide/README.md ./src/mutations/update/README.md ./src/resolvers/Query.ts",
 		"boilerplate": "yarn gql:packages gql:directories gql:create-files"
